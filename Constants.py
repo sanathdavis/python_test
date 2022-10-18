@@ -2,6 +2,8 @@
 #defines functions that print error text and success text
 #also resets to normal colors after usage
 
+from .Helpers import *
+
 employees = []
 ALL_TOGETHER = 0
 ANNUAL = 1
