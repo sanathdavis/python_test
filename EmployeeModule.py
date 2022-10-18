@@ -57,12 +57,6 @@
 #   MONTHLY : 12,
 #   BI_WEEKLY : 24,
 # }
-import wget
-wget 'https://raw.githubusercontent.com/sanathdavis/python_test/main/Constants.py'
-wget 'https://raw.githubusercontent.com/sanathdavis/python_test/main/Helpers.py'
-
-from Constants import * 
-from Helpers import *
 
 class Employee:
 
@@ -70,7 +64,7 @@ class Employee:
   BENEFITS_RATE = 5.5
   GOVT_REDUCTIONS_RATE = 2.5  
 
-  def __init__(self,first_name,last_name,position, base_annual_salary):
+  def __init__(self,first_name,last_name,position, base_annual_salary,constants, helpers):
     self.id = 'job-card-' + str(len(employees) + 1) + '-2022-temp'
     self.first_name = first_name
     self.last_name = last_name
