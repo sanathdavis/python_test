@@ -59,8 +59,8 @@
 #   BI_WEEKLY : 24,
 # }
 
-from .Constants import *
-from .Helpers import *
+from ..Constants import *
+from ..Helpers import *
 
 class Employee:
 
