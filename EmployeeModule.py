@@ -1,62 +1,64 @@
 #class which contains framework for an employee
 
 
-#helper functions
-#defines functions that print error text and success text
-#also resets to normal colors after usage
+# #helper functions
+# #defines functions that print error text and success text
+# #also resets to normal colors after usage
 
-employees = []
+# employees = []
 
-RED ='\033[31m'
-GREEN = '\033[32m'
-BLUE = '\033[34m'
-BOLD = '\033[1m'
-UNDERLINE = '\033[4m'
-RESET = '\033[30m'
+# RED ='\033[31m'
+# GREEN = '\033[32m'
+# BLUE = '\033[34m'
+# BOLD = '\033[1m'
+# UNDERLINE = '\033[4m'
+# RESET = '\033[30m'
 
-def reset_font():
-  print(RESET)
+# def reset_font():
+#   print(RESET)
 
-def print_error(text):
-  print(RED + text)
-  reset_font()
+# def print_error(text):
+#   print(RED + text)
+#   reset_font()
 
-def return_error(text):
-  return RED + text + RESET
+# def return_error(text):
+#   return RED + text + RESET
   
-def print_success(text):
-  print(GREEN + text)
-  reset_font()
+# def print_success(text):
+#   print(GREEN + text)
+#   reset_font()
 
-def print_info(text):
-  print(BLUE + text)
-  reset_font()
+# def print_info(text):
+#   print(BLUE + text)
+#   reset_font()
 
-def return_underline(text):
-  return "\x1B[4m" + text + "\x1B[0m"
+# def return_underline(text):
+#   return "\x1B[4m" + text + "\x1B[0m"
 
-def return_bold(text):
-  return "\x1B[1m" + text + "\x1B[0m"
+# def return_bold(text):
+#   return "\x1B[1m" + text + "\x1B[0m"
 
-def format_currency(amt):
-  return "${:0,.2f}".format(amt)
+# def format_currency(amt):
+#   return "${:0,.2f}".format(amt)
 
-ALL_TOGETHER = 0
-ANNUAL = 1
-MONTHLY = 2
-BI_WEEKLY = 3
+# ALL_TOGETHER = 0
+# ANNUAL = 1
+# MONTHLY = 2
+# BI_WEEKLY = 3
 
-STUB_TYPES = {
-  ANNUAL : return_bold(return_underline('Annual View')),
-  MONTHLY : return_bold(return_underline('Monthly View')),
-  BI_WEEKLY : return_bold(return_underline('Bi-Weekly View')),
-}
+# STUB_TYPES = {
+#   ANNUAL : return_bold(return_underline('Annual View')),
+#   MONTHLY : return_bold(return_underline('Monthly View')),
+#   BI_WEEKLY : return_bold(return_underline('Bi-Weekly View')),
+# }
 
-DIVIDE_BY = {    
-  ANNUAL : 1,
-  MONTHLY : 12,
-  BI_WEEKLY : 24,
-}
+# DIVIDE_BY = {    
+#   ANNUAL : 1,
+#   MONTHLY : 12,
+#   BI_WEEKLY : 24,
+# }
+
+from Constants import * 
 
 class Employee:
 
