@@ -58,6 +58,9 @@
 #   BI_WEEKLY : 24,
 # }
 
+!wget 'https://raw.githubusercontent.com/sanathdavis/python_test/main/Constants.py'
+!wget 'https://raw.githubusercontent.com/sanathdavis/python_test/main/Helpers.py'
+
 from Constants import * 
 from Helpers import *
 
