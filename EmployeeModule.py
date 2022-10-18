@@ -1,4 +1,5 @@
 #class which contains framework for an employee
+#file also contains several COnstants and helper functions
 
 
 # #helper functions
@@ -58,13 +59,16 @@
 #   BI_WEEKLY : 24,
 # }
 
+from .Constants import *
+from .Helpers import *
+
 class Employee:
 
   TAX_RATE = 13.5
   BENEFITS_RATE = 5.5
   GOVT_REDUCTIONS_RATE = 2.5  
-
-  def __init__(self,first_name,last_name,position, base_annual_salary,constants, helpers):
+  
+  def __init__(self,first_name,last_name,position, base_annual_salary):
     self.id = 'job-card-' + str(len(employees) + 1) + '-2022-temp'
     self.first_name = first_name
     self.last_name = last_name
