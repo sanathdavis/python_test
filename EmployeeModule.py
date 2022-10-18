@@ -57,7 +57,7 @@
 #   MONTHLY : 12,
 #   BI_WEEKLY : 24,
 # }
-
+import wget
 wget 'https://raw.githubusercontent.com/sanathdavis/python_test/main/Constants.py'
 wget 'https://raw.githubusercontent.com/sanathdavis/python_test/main/Helpers.py'
 
