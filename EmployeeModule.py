@@ -1,14 +1,13 @@
 #class which contains framework for an employee
 #file contains several Constants and helper functions and the EMPLOYEE Class
 
+from prettytable import PrettyTable
+from datetime import datetime
+
 
 #helper functions
 #defines functions that print error text and success text
 #also resets to normal colors after usage
-
-from prettytable import PrettyTable
-from datetime import datetime
-
 
 RED ='\033[31m'
 GREEN = '\033[32m'
@@ -17,30 +16,38 @@ BOLD = '\033[1m'
 UNDERLINE = '\033[4m'
 RESET = '\033[30m'
 
+#resets the font color
 def reset_font():
   print(RESET)
 
+#returns text in red, used for error messages
 def print_error(text):
   print(RED + text)
   reset_font()
 
+#prints text in red, used for printing error messages
 def return_error(text):
   return RED + text + RESET
-  
+
+#prints text in green, used for printing success messages
 def print_success(text):
   print(GREEN + text)
   reset_font()
 
+#prints text in blue, used for printing infor messages
 def print_info(text):
   print(BLUE + text)
   reset_font()
-
+  
+#return text in underline
 def return_underline(text):
   return "\x1B[4m" + text + "\x1B[0m"
 
+#return text in bold
 def return_bold(text):
   return "\x1B[1m" + text + "\x1B[0m"
 
+#return amount in correct format with dollar sign, commas and correct precision
 def format_currency(amt):
   return "${:0,.2f}".format(amt)
 
@@ -74,6 +81,7 @@ class Employee:
   BENEFITS_RATE = 5.5
   GOVT_REDUCTIONS_RATE = 2.5  
   
+  #class contructur which initialises
   def __init__(self,first_name,last_name,position, base_annual_salary):
     self.id = 'job-card-' + str(len(employees) + 1) + '-2022-temp'
     self.first_name = first_name
@@ -81,10 +89,12 @@ class Employee:
     self.position = position
     self.base_annual_salary = base_annual_salary
  
+  #function to print out basic employee info, used after successful search 
   def print_employee_details(self):
     print(f'Employee ID: {self.id}')
     print(f'Employee Name: {self.first_name} {self.last_name}')
   
+  #used to calculate the bonus rate using the annual salary value
   def get_bonus_rate(self):
     if self.base_annual_salary <= 21000:
       self.bonus_rate = 12.5
@@ -96,9 +106,11 @@ class Employee:
       self.bonus_rate = 60
     return self.bonus_rate 
 
+  #return lamda function to calculate rate
   def rate_calculator(self, n):
     return lambda a : a * n / 100   
 
+  #used to give out only the net income rates in all three formats
   def get_net_income(self):    
     annual_net_income = self.prepare_values_for_printing(ANNUAL)['net_income']
     return {
@@ -107,6 +119,7 @@ class Employee:
         'Bi-Weekly Net Income' : format_currency(annual_net_income / DIVIDE_BY[BI_WEEKLY]),
     }
 
+  #prepares and returns the values required for printing the paystub
   def prepare_values_for_printing(self, stub_type = ANNUAL): 
 
     get_bonus = self.rate_calculator(self.get_bonus_rate())
@@ -134,6 +147,9 @@ class Employee:
         'net_income' : net_income / divide_by
     }
 
+  #used to print the paystub in the correct format
+  #uses pretty table for easier table formating
+  #helper functions are used for bold and underline
   def print_pay_stub(self, stub_type = ANNUAL):
     pay_stub_table = PrettyTable()
     display_time = datetime.now().strftime("%Y-%m-%d")
