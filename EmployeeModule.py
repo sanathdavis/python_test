@@ -82,6 +82,7 @@ class Employee:
   GOVT_REDUCTIONS_RATE = 2.5  
   
   #class contructur which initialises
+  #generates a unique professional id for the user
   def __init__(self,first_name,last_name,position, base_annual_salary):
     self.id = 'job-card-' + str(len(employees) + 1) + '-2022-temp'
     self.first_name = first_name
